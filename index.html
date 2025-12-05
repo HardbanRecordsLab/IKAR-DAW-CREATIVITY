@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RytmAI DAW</title>
+    <link rel="stylesheet" href="/index.css">
+    <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@0.1.2",
+    "tone": "https://esm.sh/tone@15.0.4",
+    "lit": "https://esm.sh/lit@3.1.2",
+    "lit/": "https://esm.sh/lit@3.1.2/",
+    "wavesurfer.js": "https://esm.sh/wavesurfer.js@7.7.3"
+  }
+}
+</script>
+  </head>
+  <body>
+    <!-- Hardcoded loading state ensures visibility even if JS fails -->
+    <div id="app-loading">
+        <style>
+            body { margin: 0; background: #121212; }
+            #app-loading {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: #121212; color: #06D6A0; display: flex; flex-direction: column;
+                justify-content: center; align-items: center; font-family: sans-serif;
+                z-index: 9999;
+            }
+            .spinner {
+                width: 40px; height: 40px; border: 4px solid #333;
+                border-top: 4px solid #06D6A0; border-radius: 50%;
+                animation: spin 1s linear infinite; margin-bottom: 20px;
+            }
+            @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        </style>
+        <div class="spinner"></div>
+        <h1>Loading Studio...</h1>
+        <p style="color: #666; font-size: 0.8rem; margin-top: 10px;">Initializing Audio Engine & AI...</p>
+    </div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
